@@ -1,4 +1,5 @@
-FROM centos:8
+FROM quay.io/generic/centos8:latest
+#FROM centos:8
 LABEL maintainer="Jeff Geerling"
 ENV container=docker
 
@@ -16,17 +17,19 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Install requirements.
-RUN yum makecache fast \
- && yum -y install deltarpm epel-release initscripts \
+RUN yum makecache --timer \
+ && yum -y install epel-release initscripts \
  && yum -y update \
  && yum -y install \
       sudo \
       which \
-      python-pip \
+      hostname \
+      python3 \
+      python3-pip \
  && yum clean all
 
 # Install Ansible via Pip.
-RUN pip install $pip_packages
+RUN pip3 install $pip_packages
 
 # Disable requiretty.
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers

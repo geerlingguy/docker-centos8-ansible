@@ -1,5 +1,4 @@
-FROM quay.io/generic/centos8:latest
-#FROM centos:8
+FROM centos:8
 LABEL maintainer="Jeff Geerling"
 ENV container=docker
 

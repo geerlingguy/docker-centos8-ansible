@@ -4,6 +4,9 @@ ENV container=docker
 
 ENV pip_packages "ansible"
 
+# Update everything.
+RUN yum -y update && yum clean all
+
 # Install systemd -- See https://hub.docker.com/_/centos/
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
@@ -14,10 +17,6 @@ rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
 rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
-
-# See: https://github.com/geerlingguy/docker-centos8-ansible/issues/5
-# Update everything.
-# RUN yum -y update && yum clean all
 
 # Install requirements.
 RUN yum makecache --timer \

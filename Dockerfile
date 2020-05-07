@@ -16,7 +16,9 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Install requirements.
-RUN yum -y install \
+RUN yum -y install rpm centos-release \
+ && yum -y update \
+ && yum -y install \
       epel-release \
       initscripts \
       sudo \

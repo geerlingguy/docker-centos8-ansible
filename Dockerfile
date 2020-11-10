@@ -26,6 +26,7 @@ RUN yum -y install rpm centos-release \
       hostname \
       python3 \
       python3-pip \
+      libyaml-devel \
  && yum clean all
 
 # Install Ansible via Pip.

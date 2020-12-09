@@ -18,7 +18,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 # Install requirements.
 RUN yum -y install rpm centos-release dnf-plugins-core \
  && yum -y update \
- && yum -y config-manager --set-enabled PowerTools \
+ && yum -y config-manager --set-enabled powertools \
  && yum -y install \
       epel-release \
       initscripts \

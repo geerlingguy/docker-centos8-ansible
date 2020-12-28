@@ -31,7 +31,7 @@ RUN yum -y install rpm centos-release dnf-plugins-core \
       python3 \
       python3-pip \
       python3-pyyaml \
-      python3-dev \
+      python3-devel \
  && yum clean all
 
 # Install Ansible via Pip.

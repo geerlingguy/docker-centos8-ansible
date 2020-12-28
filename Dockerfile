@@ -26,6 +26,7 @@ RUN yum -y install rpm centos-release dnf-plugins-core \
       which \
       hostname \
       libyaml-devel \
+      libffi-devel \
       python3 \
       python3-pip \
       python3-pyyaml \

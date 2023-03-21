@@ -25,7 +25,7 @@ jobs:
             Please make sure you are NOT addressing multiple issues with one PR.
           files_to_ignore: 'deployment/deployments/grafana/*'
       - uses: actions/labeler@v4
-        area/test1:
+        label1:
         - any: ['test1/*']
-        area/test2:
+        label2:
         - any: ['test2/*']
